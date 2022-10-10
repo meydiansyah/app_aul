@@ -23,6 +23,8 @@ class JobsResource extends JsonResource
             'price' => $this->price,
             'start' => $this->timestart,
             'end' => $this->timestop,
+            'city' => $this->user->city,
+            'rating' => substr(Review::where('jasa_id', '=', $this->id)->average('star'), 0, 3),
             'desc' => $this->desc,
             'status' => $this->user->status->name,
             'image' => $this->portofolio->image,
